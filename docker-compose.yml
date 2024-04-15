@@ -1,0 +1,17 @@
+version: "3"
+services:
+  windows:
+    image: dockurr/windows
+    container_name: win11
+    environment:
+      VERSION: "core11"
+    devices:
+      - /dev/kvm
+    cap_add:
+      - NET_ADMIN
+    ports:
+      - 6969:6969
+      - 3369:3369/tcp
+      - 3469:3469/udp
+    stop_grace_period: 2m
+    restart: on-failure
